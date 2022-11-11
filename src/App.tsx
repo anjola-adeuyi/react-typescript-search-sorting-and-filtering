@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <h1>Widgets:</h1>
-      {widgets.filter((widget) => genericSearch(widget, ['title', 'description'], query)).map(widget => {
+      {widgets.filter((widget) => genericSearch(widget, ['title', 'description'], query, false)).map(widget => {
         return (
           <div key={widget.id}>
             <h2>{widget.title}</h2>
