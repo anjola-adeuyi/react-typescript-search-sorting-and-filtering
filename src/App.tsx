@@ -18,7 +18,7 @@ function App() {
         );
       })}
       <h1>People:</h1>
-      {people.map(person => {
+      {people.filter((person) => genericSearch(person, ['birthday'], query, false)).map(person => {
         return (
           <div key={person.eyeColor}>
             <h2>{person.firstName} - {person.lastName}</h2>
