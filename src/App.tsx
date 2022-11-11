@@ -5,11 +5,11 @@ import widgets from './mock-data/widget';
 import genericSearch from './utils/genericSearch';
 
 function App() {
-  const query = 'Three';
+  const query = 'empty';
   return (
     <div className="App">
       <h1>Widgets:</h1>
-      {widgets.filter((widget) => genericSearch(widget, 'title', query)).map(widget => {
+      {widgets.filter((widget) => genericSearch(widget, ['title', 'description'], query)).map(widget => {
         return (
           <div key={widget.id}>
             <h2>{widget.title}</h2>
