@@ -1,11 +1,19 @@
 import React from 'react'
+import useDebounce from '../hooks/useDebounce';
 
-interface Props {
+interface ISearchInputProps {
   setsearchQuery: (query: string) => void;
 }
 
-const SearchInput = (props: Props) => {
-  const { setsearchQuery } = props
+const SearchInput = (props: ISearchInputProps) => {
+  const { setsearchQuery } = props;
+  const [query, setQuery] = React.useState('');
+  const debouncedQuery = useDebounce(query, 250);
+
+  React.useEffect(() => {
+    setsearchQuery(debouncedQuery);
+  }, [debouncedQuery, setsearchQuery]);
+
   return (
     <div className="row justify-content-center mt-3">
       <label htmlFor='search' className='form-label'>
@@ -15,12 +23,12 @@ const SearchInput = (props: Props) => {
         <input 
           id='search'
           type='search'
-          className='form-control form-control-lg mb-3 col col-lg-6'
+          className='form-control form-control-lg mb-3'
           placeholder='Search...'
           aria-label='Search'
           onChange={(e) => {
             console.log('firing!')
-            setsearchQuery(e.target.value)}
+            setQuery(e.target.value)}
           }
         />
       </div>

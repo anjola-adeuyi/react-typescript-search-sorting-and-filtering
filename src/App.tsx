@@ -13,7 +13,10 @@ function App() {
 
   return (
     <div className="App row m-4">
-      <SearchInput setsearchQuery={setQuery} />
+      <SearchInput setsearchQuery={(query) => {
+        console.log('setting!!!');
+        setQuery(query);
+      }} />
 
       <h1>Widgets:</h1>
       {getWidgetFilter.length === 0 ?  (<h5>Sorry... could not find any match under widget category</h5>) : (getWidgetFilter.map(widget => {
