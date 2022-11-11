@@ -17,7 +17,10 @@ const SearchInput = (props: Props) => {
         className='form-control mb-3 full-width'
         placeholder='Search...'
         aria-label='Search'
-        onChange={(e) => setsearchQuery(e.target.value)}
+        onChange={(e) => {
+          console.log('firing!')
+          setsearchQuery(e.target.value)}
+        }
       />
     </>
   )

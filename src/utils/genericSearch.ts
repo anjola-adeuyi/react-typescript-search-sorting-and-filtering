@@ -11,7 +11,7 @@ export default function genericSearch<T>(object: T, properties: Array<keyof T>, 
         if (shouldBeCaseSensitive) {
           return value.toString().includes(query);
         } else {
-        return value.toString().toLowerCase().includes(query.toLowerCase());
+          return value.toString().toLowerCase().includes(query.toLowerCase());
         }
       }
 
