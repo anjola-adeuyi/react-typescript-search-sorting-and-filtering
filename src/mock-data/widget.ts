@@ -110,7 +110,7 @@ const widgets: Array<IWidget> = [
         isSpecialCard: false
       },
       {
-        title: "I am the title. This card has an empty, i.e. 'falsy' description :(",
+        title: "I am the falsy title :(",
         description: "falsy description",
         id: 13,
         rating: 5,
