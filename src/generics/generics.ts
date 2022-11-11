@@ -1,3 +1,5 @@
+// WITHOUT GENERICS
+
 export interface IFooBar {
     foo: string;
     bar: string;
@@ -27,3 +29,23 @@ function sortByBar(fooBars: Array<IFooBar>): Array<IFooBar> {
 
 console.log(sortByFoo(fooBars));
 console.log(sortByBar(fooBars));
+
+
+
+
+// WITH GENERICS
+
+function sortByKey<T>(fooBars: Array<T>, key: keyof T): Array<T> {
+    return fooBars.sort((a, b) => {
+      if (a[key] < b[key]) {
+        return -1;
+      }
+      if (a[key] > b[key]) {
+        return 1;
+      }
+      return 0;
+    });
+}
+
+console.log(sortByKey(fooBars, 'foo'));
+console.log(sortByKey(fooBars, 'bar'));
