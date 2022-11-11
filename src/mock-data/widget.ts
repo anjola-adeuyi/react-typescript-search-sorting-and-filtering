@@ -47,8 +47,8 @@ const widgets: Array<IWidget> = [
         isSpecialCard: false
       },
       {
-        title: "X",
-        description: "X",
+        title: "X title",
+        description: "X description",
         id: 6,
         rating: 10,
         created: new Date(+new Date() - Math.floor(Math.random() * 10000000000)),
@@ -56,8 +56,8 @@ const widgets: Array<IWidget> = [
         isSpecialCard: false
       },
       {
-        title: "Y",
-        description: "Y",
+        title: "Y title",
+        description: "Y description",
         id: 7,
         rating: 9,
         created: new Date(+new Date() - Math.floor(Math.random() * 10000000000)),
@@ -65,8 +65,8 @@ const widgets: Array<IWidget> = [
         isSpecialCard: false
       },
       {
-        title: "Z",
-        description: "Z",
+        title: "Z title",
+        description: "Z description",
         id: 8,
         rating: 1,
         created: new Date(+new Date() - Math.floor(Math.random() * 10000000000)),
@@ -74,8 +74,8 @@ const widgets: Array<IWidget> = [
         isSpecialCard: true
       },
       {
-        title: "A",
-        description: "A",
+        title: "A . title",
+        description: "A description",
         id: 9,
         rating: 6,
         created: new Date(+new Date() - Math.floor(Math.random() * 10000000000)),
@@ -83,8 +83,8 @@ const widgets: Array<IWidget> = [
         isSpecialCard: false
       },
       {
-        title: "B",
-        description: "B",
+        title: "B title",
+        description: "B description",
         id: 10,
         rating: 0,
         created: new Date(+new Date() - Math.floor(Math.random() * 10000000000)),
@@ -92,8 +92,8 @@ const widgets: Array<IWidget> = [
         isSpecialCard: false
       },
       {
-        title: "C",
-        description: "C",
+        title: "C title",
+        description: "C description",
         id: 11,
         rating: 3,
         created: new Date(+new Date() - Math.floor(Math.random() * 10000000000)),
@@ -101,7 +101,7 @@ const widgets: Array<IWidget> = [
         isSpecialCard: false
       },
       {
-        title: "",
+        title: "'falsy' title",
         description: "I am the description. This card has an empty, i.e. 'falsy' title :(",
         id: 12,
         rating: 5,
@@ -111,7 +111,7 @@ const widgets: Array<IWidget> = [
       },
       {
         title: "I am the title. This card has an empty, i.e. 'falsy' description :(",
-        description: "",
+        description: "falsy description",
         id: 13,
         rating: 5,
         created: new Date(+new Date() - Math.floor(Math.random() * 10000000000)),
