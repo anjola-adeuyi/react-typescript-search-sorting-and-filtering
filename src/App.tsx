@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import WidgetRender from './component/renders/WidgetRender';
 import SearchInput from './component/SearchInput';
 import Sorters from './component/Sorters';
 import IPerson from './interfaces/IPerson';
@@ -40,12 +41,16 @@ function App() {
       ) : (
         getWidgetSort.map((widget) => {
           return (
-            <ul
-              className="list-group col-4 justify-content-center"
+            <WidgetRender
               key={widget.id}
-            >
-              <li className="list-group-item m-1">{widget.title}</li>
-            </ul>
+              {...widget}
+            />
+            // <ul
+            //   className="list-group col-4 justify-content-center"
+            //   key={widget.id}
+            // >
+            //   <li className="list-group-item m-1">{widget.title}</li>
+            // </ul>
           );
         })
       )}
