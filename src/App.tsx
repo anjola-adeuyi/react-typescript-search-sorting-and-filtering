@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import SearchInput from './component/SearchInput';
+import Sorters from './component/Sorters';
 import IPerson from './interfaces/IPerson';
 import IProperty from './interfaces/IProperty';
 import IWidget from './interfaces/IWidget';
@@ -11,8 +12,8 @@ import genericSort from './utils/genericSort';
 
 function App() {
   const [query, setQuery] = React.useState('');
-  const [widgetSortProperty, setWidgetSortProperty] = React.useState<IProperty<IWidget>>({property: 'description'});
-  const [personSortProperty, setPersonSortProperty] = React.useState<IProperty<IPerson>>({property: 'firstName'});
+  const [widgetSortProperty, setWidgetSortProperty] = React.useState<IProperty<IWidget>>({ property: 'description' });
+  const [personSortProperty, setPersonSortProperty] = React.useState<IProperty<IPerson>>({ property: 'firstName' });
 
   const getWidgetFilter = widgets.filter((widget) => genericSearch(widget, ['title', 'description'], query, false));
   const getPeopleFilter = people.filter((person) => genericSearch(person, ['firstName', 'lastName'], query, false));
@@ -22,28 +23,53 @@ function App() {
 
   return (
     <div className="App row m-4">
-      <SearchInput setsearchQuery={(query) => {
-        console.log('setting!!!');
-        setQuery(query);
-      }} />
+      <SearchInput
+        setsearchQuery={(query) => {
+          console.log('setting!!!');
+          setQuery(query);
+        }}
+      />
 
       <h1>Widgets:</h1>
-      {getWidgetSort.length === 0 ?  (<h5>Sorry... could not find any match under widget category</h5>) : (getWidgetSort.map(widget => {
-        return (
-          <ul className='list-group col-4 justify-content-center' key={widget.id}>
-            <li className='list-group-item m-1'>{widget.title}</li>
-          </ul>
-        );
-      }) ) }
+      <Sorters
+        obj={widgets[0]}
+        setProperty={(property) => setWidgetSortProperty({ property })}
+      />
+      {getWidgetSort.length === 0 ? (
+        <h5>Sorry... could not find any match under widget category</h5>
+      ) : (
+        getWidgetSort.map((widget) => {
+          return (
+            <ul
+              className="list-group col-4 justify-content-center"
+              key={widget.id}
+            >
+              <li className="list-group-item m-1">{widget.title}</li>
+            </ul>
+          );
+        })
+      )}
 
       <h1>People:</h1>
-      {getPeopleSort.length === 0 ? (<h5>Sorry... could not find any match under people category</h5>) : (getPeopleSort.map((person, idx) => {
-        return (
-          <ul className='list-group col-4 justify-content-center' key={idx}>
-            <li className='list-group-item m-1'>{person.firstName} - {person.lastName}</li>
-          </ul>
-        );
-      })
+      <Sorters
+        obj={people[0]}
+        setProperty={(property) => setPersonSortProperty({ property })}
+      />
+      {getPeopleSort.length === 0 ? (
+        <h5>Sorry... could not find any match under people category</h5>
+      ) : (
+        getPeopleSort.map((person, idx) => {
+          return (
+            <ul
+              className="list-group col-4 justify-content-center"
+              key={idx}
+            >
+              <li className="list-group-item m-1">
+                {person.firstName} - {person.lastName}
+              </li>
+            </ul>
+          );
+        })
       )}
     </div>
   );
