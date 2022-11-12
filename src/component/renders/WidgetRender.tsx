@@ -7,7 +7,7 @@ interface IWidgetRenderProps extends IWidget {}
 const WidgetRender = (props: IWidgetRenderProps) => {
   const { id, created, description, isSpecialCard, rating, title, updated } = props;
   return (
-    <div className="col-4 p-3">
+    <div className="col-lg-4 p-3">
       <div className={isSpecialCard ? 'card specialCard' : 'card'}>
         <div className="card-body">
           <h1 className="card-title">{title}</h1>

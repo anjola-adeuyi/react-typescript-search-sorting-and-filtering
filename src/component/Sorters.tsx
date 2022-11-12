@@ -16,7 +16,7 @@ const Sorters = <T extends object>(props: ISortersProps<T>): JSX.Element => {
       >
         Sorters! Try us too....
       </label>
-      <div className="col-3">
+      <div className="col-lg-3 col-md-6 col-sm-3">
         <select
           id="sorters"
           className="form-select"
