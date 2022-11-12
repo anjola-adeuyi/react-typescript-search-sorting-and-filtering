@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 import SearchInput from './component/SearchInput';
+import IPerson from './interfaces/IPerson';
+import IProperty from './interfaces/IProperty';
+import IWidget from './interfaces/IWidget';
 import people from './mock-data/person';
 import widgets from './mock-data/widget';
 import genericSearch from './utils/genericSearch';
@@ -8,12 +11,14 @@ import genericSort from './utils/genericSort';
 
 function App() {
   const [query, setQuery] = React.useState('');
+  const [widgetSortProperty, setWidgetSortProperty] = React.useState<IProperty<IWidget>>({property: 'description'});
+  const [personSortProperty, setPersonSortProperty] = React.useState<IProperty<IPerson>>({property: 'firstName'});
 
   const getWidgetFilter = widgets.filter((widget) => genericSearch(widget, ['title', 'description'], query, false));
   const getPeopleFilter = people.filter((person) => genericSearch(person, ['firstName', 'lastName'], query, false));
 
-  const getWidgetSort = getWidgetFilter.sort((a, b) => genericSort(a, b, 'description', 'asc'));
-  const getPeopleSort = getPeopleFilter.sort((a, b) => genericSort(a, b, 'firstName', 'asc'));
+  const getWidgetSort = getWidgetFilter.sort((a, b) => genericSort(a, b, widgetSortProperty.property, 'asc'));
+  const getPeopleSort = getPeopleFilter.sort((a, b) => genericSort(a, b, personSortProperty.property, 'asc'));
 
   return (
     <div className="App row m-4">
