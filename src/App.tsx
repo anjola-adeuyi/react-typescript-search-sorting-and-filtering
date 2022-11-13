@@ -45,12 +45,6 @@ function App() {
               key={widget.id}
               {...widget}
             />
-            // <ul
-            //   className="list-group col-4 justify-content-center"
-            //   key={widget.id}
-            // >
-            //   <li className="list-group-item m-1">{widget.title}</li>
-            // </ul>
           );
         })
       )}
