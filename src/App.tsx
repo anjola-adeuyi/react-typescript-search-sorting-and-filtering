@@ -64,14 +64,6 @@ function App() {
               key={idx}
               {...person}
             />
-            // <ul
-            //   className="list-group col-4 justify-content-center"
-            //   key={idx}
-            // >
-            //   <li className="list-group-item m-1">
-            //     {person.firstName} - {person.lastName}
-            //   </li>
-            // </ul>
           );
         })
       )}
