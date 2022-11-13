@@ -4,7 +4,7 @@ import IPerson from '../../interfaces/IPerson';
 
 interface IPeopleRenderProps extends IPerson {}
 
-const WidgetRender = (props: IPeopleRenderProps) => {
+const PeopleRender = (props: IPeopleRenderProps) => {
   const { firstName, birthday, eyeColor, lastName } = props;
   return (
     <div className="col-lg-4 p-3">
@@ -28,4 +28,4 @@ const WidgetRender = (props: IPeopleRenderProps) => {
   );
 };
 
-export default WidgetRender;
+export default PeopleRender;
