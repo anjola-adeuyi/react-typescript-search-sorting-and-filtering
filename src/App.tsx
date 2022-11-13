@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import PeopleRender from './component/renders/PeopleRender';
 import WidgetRender from './component/renders/WidgetRender';
 import SearchInput from './component/SearchInput';
 import Sorters from './component/Sorters';
@@ -59,14 +60,18 @@ function App() {
       ) : (
         getPeopleSort.map((person, idx) => {
           return (
-            <ul
-              className="list-group col-4 justify-content-center"
+            <PeopleRender
               key={idx}
-            >
-              <li className="list-group-item m-1">
-                {person.firstName} - {person.lastName}
-              </li>
-            </ul>
+              {...person}
+            />
+            // <ul
+            //   className="list-group col-4 justify-content-center"
+            //   key={idx}
+            // >
+            //   <li className="list-group-item m-1">
+            //     {person.firstName} - {person.lastName}
+            //   </li>
+            // </ul>
           );
         })
       )}
