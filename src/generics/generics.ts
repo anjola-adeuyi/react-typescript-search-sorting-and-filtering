@@ -49,3 +49,13 @@ function sortByKey<T>(fooBars: Array<T>, key: keyof T): Array<T> {
 
 console.log(sortByKey(fooBars, 'foo'));
 console.log(sortByKey(fooBars, 'bar'));
+
+
+type T1 = {
+  name: string;
+  title: string;
+  age: number;
+  address: string;
+};
+
+export type T2 = Omit<T1, 'name' | 'title'>
